@@ -105,18 +105,11 @@ calcs.plotLine(curr_point, pt_b)
 #create a copy of the edge list
 placed_edges = edge_list[:]
 
-# for pt in point_objects:           #for each point...
-#     print "looking at pt", pt.num
-#     if pt not in placed_points:    #if it hasn't been positioned yet...
-#         min_dist = [0, 9999999]
-edge_list = placed_edges   #refresh edge list
-
-print "main loop"
-min_dist = [None, 9999999]
-pt_a = None
-pt_b = None
-
 while len(placed_points) < len(point_objects):
+    edge_list = placed_edges   #refresh edge list
+    min_dist = [0, 9999999]
+    pt_a = None
+    pt_b = None
     for pt in point_objects:
         if pt not in placed_points:
             for edge in edge_list:       #check it against every edge in the list, calculating their proximity to each other
