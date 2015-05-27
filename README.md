@@ -5,4 +5,6 @@ Alternative solution to Travelling Salesperson Problem. Finds the point closest 
 
 RandomX.tsp are sample input files, with X sets of coordinates of points to be visited.
 
+The visualization still needs work, as edges are not always removed once points are added.
+
 Dependencies: Python 2.7, matplotlib
