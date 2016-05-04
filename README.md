@@ -5,7 +5,7 @@ Alternative solution to Travelling Salesperson Problem. Finds the point closest 
 
 RandomX.tsp are sample input files, with X sets of coordinates of points to be visited.
 
-main_tsp3.py is the main .py file.
+calcs.py contains the necessary calculations. main_tsp3.py is the main file.
 
 The visualization still needs work, as edges are not always removed once points are added.
 
