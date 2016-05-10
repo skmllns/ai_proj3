@@ -66,24 +66,19 @@ placed_points.append(curr_point)
 a, b, c = calcs.getLine(placed_points[0].x, placed_points[0].y, placed_points[1].x, placed_points[1].y)
 calcs.plotLine(placed_points[0], placed_points[1])
 edge_list.append([placed_points[0].num, placed_points[1].num, a, b, c])
-#time.sleep(10)
-#
+
 #set first edge
 edge = edge_list[0]
 a = edge[2]
 b = edge[3]
 c = edge[4]
 
-print edge
-#
 #manually insert 3rd point, to set up the 3 initial edges
 min_dist = [0, 999999]
 for pt in point_objects:
 
     if pt not in placed_points:             #but only look if it hasn't been placed yet
-        print "looking at point ", pt.num
         pt2edge_dist = calcs.getPtLineDist(point_objects, edge, pt.x, pt.y)
-        print pt2edge_dist, pt.num
         if pt2edge_dist < min_dist[1]:      #if it's the shortest, make it the new shortest
             min_dist, pt_a, pt_b = calcs.setShortest(min_dist, pt, pt2edge_dist, point_objects, edge)
             print "new min dist is", min_dist, ", between ", pt_a.num, " and ", pt_b.num
@@ -131,16 +126,13 @@ while len(placed_points) < len(point_objects):
     d, e, f = calcs.getLine(curr_point.x, curr_point.y, pt_b.x, pt_b.y)
 
     #add new edges
-    print "creating an edge b/w", pt_a.num, curr_point.num
     placed_edges.append([pt_a.num, curr_point.num, a, b, c])
     calcs.plotLine(pt_a, curr_point)
 
-    print "creating an edge b/w", curr_point.num, pt_b.num
     placed_edges.append([curr_point.num, pt_b.num, d, e, f])
     calcs.plotLine(curr_point, pt_b)
 
     #find edge to be removed, and remove it!
-    print "removing edge b/w", pt_a.num, pt_b.num
     rem_edge = calcs.findEdge(edge_list, pt_a.num, pt_b.num)
 
     pt_label = str(pt_a.num) + str(pt_b.num)
